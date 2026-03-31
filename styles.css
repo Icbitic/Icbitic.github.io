@@ -24,7 +24,7 @@ body {
   color: var(--ink);
   background:
     linear-gradient(rgba(248, 240, 44, 0.78), rgba(248, 240, 44, 0.78)),
-    url("https://upload.wikimedia.org/wikipedia/commons/6/65/Keith_Haring_op_de_Centrale_Markthallen_te_Amsterdam_%281%29.jpg"),
+    url("https://www.mocomuseum.com/app/uploads/2025/04/kh-3840x1920-c-center.webp"),
     linear-gradient(90deg, transparent 0, transparent 47px, var(--grid) 48px, transparent 49px),
     linear-gradient(transparent 0, transparent 47px, var(--grid) 48px, transparent 49px),
     linear-gradient(135deg, var(--bg) 0%, #ffe6a8 38%, var(--bg-secondary) 100%);
