@@ -23,15 +23,13 @@ body {
   font-family: "IBM Plex Mono", monospace;
   color: var(--ink);
   background:
-    linear-gradient(rgba(248, 240, 44, 0.78), rgba(248, 240, 44, 0.78)),
-    url("https://www.mocomuseum.com/app/uploads/2025/04/kh-3840x1920-c-center.webp"),
     linear-gradient(90deg, transparent 0, transparent 47px, var(--grid) 48px, transparent 49px),
     linear-gradient(transparent 0, transparent 47px, var(--grid) 48px, transparent 49px),
     linear-gradient(135deg, var(--bg) 0%, #ffe6a8 38%, var(--bg-secondary) 100%);
-  background-size: cover, cover, 48px 48px, 48px 48px, auto;
-  background-position: center, center, 0 0, 0 0, center;
-  background-attachment: fixed, fixed, fixed, fixed, fixed;
-  background-blend-mode: normal, multiply, normal, normal, normal;
+  background-size: 48px 48px, 48px 48px, auto;
+  background-position: 0 0, 0 0, center;
+  background-attachment: fixed, fixed, fixed;
+  background-blend-mode: normal, normal, normal;
 }
 
 body::before {
