@@ -1,12 +1,12 @@
 :root {
-  --bg: #eef4fb;
-  --bg-deep: #dbe7f4;
-  --ink: #142033;
-  --muted: #5c6e87;
-  --line: rgba(255, 255, 255, 0.35);
-  --glass: rgba(255, 255, 255, 0.34);
-  --glass-strong: rgba(255, 255, 255, 0.48);
-  --shadow: 0 24px 60px rgba(33, 54, 87, 0.14);
+  --bg: #f8f02c;
+  --bg-secondary: #ff5b2d;
+  --panel: #fff8df;
+  --ink: #121212;
+  --accent: #00f0ff;
+  --accent-2: #ff2ca8;
+  --grid: rgba(18, 18, 18, 0.16);
+  --shadow: 10px 10px 0 #121212;
 }
 
 * {
@@ -20,12 +20,13 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Manrope", sans-serif;
+  font-family: "IBM Plex Mono", monospace;
   color: var(--ink);
   background:
-    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.9), transparent 22%),
-    radial-gradient(circle at 82% 16%, rgba(167, 197, 255, 0.5), transparent 24%),
-    linear-gradient(140deg, var(--bg) 0%, var(--bg-deep) 48%, #f6f9fc 100%);
+    linear-gradient(90deg, transparent 0, transparent 47px, var(--grid) 48px, transparent 49px),
+    linear-gradient(transparent 0, transparent 47px, var(--grid) 48px, transparent 49px),
+    linear-gradient(135deg, var(--bg) 0%, #ffe6a8 38%, var(--bg-secondary) 100%);
+  background-size: 48px 48px, 48px 48px, auto;
 }
 
 body::before {
@@ -33,14 +34,9 @@ body::before {
   position: fixed;
   inset: 0;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)),
-    repeating-linear-gradient(
-      120deg,
-      transparent 0,
-      transparent 22px,
-      rgba(255, 255, 255, 0.08) 22px,
-      rgba(255, 255, 255, 0.08) 23px
-    );
+    radial-gradient(circle at 10% 12%, rgba(255, 255, 255, 0.45), transparent 18%),
+    radial-gradient(circle at 84% 18%, rgba(0, 240, 255, 0.22), transparent 16%),
+    radial-gradient(circle at 82% 78%, rgba(255, 44, 168, 0.18), transparent 18%);
   pointer-events: none;
 }
 
@@ -49,58 +45,94 @@ body::before {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   padding: 32px 0 48px;
-}
-
-.aurora {
+.scribble,
+.pixel {
   position: fixed;
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
-  filter: blur(26px);
-  opacity: 0.65;
   pointer-events: none;
 }
 
-.aurora-left {
-  top: 120px;
-  left: -100px;
-  background: radial-gradient(circle, rgba(139, 205, 255, 0.8), transparent 70%);
+.scribble {
+  width: 180px;
+  height: 180px;
+  border: 5px solid var(--ink);
+  border-radius: 45% 55% 50% 50%;
+  opacity: 0.55;
 }
 
-.aurora-right {
-  right: -90px;
-  bottom: 40px;
-  background: radial-gradient(circle, rgba(255, 223, 182, 0.72), transparent 70%);
+.scribble-one {
+  top: 48px;
+  right: 56px;
+  transform: rotate(14deg);
 }
 
-.glass-panel,
-.glass-card {
-  background: linear-gradient(180deg, var(--glass-strong), var(--glass));
-  border: 1px solid var(--line);
+.scribble-two {
+  bottom: 60px;
+  left: 36px;
+  border-style: dashed;
+  transform: rotate(-12deg);
+}
+
+.pixel {
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  box-shadow:
+    38px 0 0 var(--accent),
+    0 38px 0 var(--accent),
+    38px 38px 0 var(--accent),
+    76px 38px 0 var(--accent-2);
+}
+
+.pixel-a {
+  top: 110px;
+  left: 62px;
+}
+
+.pixel-b {
+  right: 140px;
+  bottom: 180px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 4px solid var(--ink);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(22px) saturate(150%);
-  -webkit-backdrop-filter: blur(22px) saturate(150%);
 }
 
 .hero {
   display: grid;
-  grid-template-columns: 1.5fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: 24px;
   padding: 40px;
-  border-radius: 32px;
+  border-radius: 22px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: 26px;
+  top: 26px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, transparent 42%, var(--ink) 43%, var(--ink) 48%, transparent 49%),
+    radial-gradient(circle, var(--accent) 0 38%, transparent 39%);
 }
 
 .hero-copy h1,
-.glass-panel h2 {
+.panel h2 {
   margin: 0;
-  font-family: "Newsreader", serif;
+  font-family: "IBM Plex Mono", monospace;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .hero-copy h1 {
-  font-size: clamp(3rem, 8vw, 5.2rem);
-  line-height: 0.95;
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  line-height: 1;
 }
 
 .lead,
@@ -110,46 +142,23 @@ body::before {
 .award-item p,
 .contact-links a {
   font-size: 1rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .eyebrow,
 .section-kicker,
-.card-label,
 .stat-label,
 .award-year {
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.74rem;
-  color: var(--muted);
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--ink);
 }
 
 .lead {
   max-width: 62ch;
   margin-top: 18px;
   margin-bottom: 0;
-  color: #21324a;
-}
-
-.hero-card {
-  align-self: end;
-  padding: 24px;
-  border-radius: 24px;
-}
-
-.focus-list {
-  margin: 18px 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 10px;
-}
-
-.focus-list li {
-  padding: 12px 14px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.36);
-  border: 1px solid rgba(255, 255, 255, 0.28);
 }
 
 .content-grid {
@@ -161,11 +170,14 @@ body::before {
 
 .content-grid > section {
   padding: 30px;
-  border-radius: 28px;
+  border-radius: 22px;
 }
 
 .intro-block {
   grid-column: 1 / -1;
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.18)),
+    var(--panel);
 }
 
 .stat-row {
@@ -191,8 +203,9 @@ body::before {
   gap: 14px;
   align-items: start;
   padding: 14px 16px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.28);
+  border-radius: 14px;
+  background: #ffffff;
+  border: 3px solid var(--ink);
 }
 
 .award-item p {
@@ -209,9 +222,10 @@ body::before {
 .chips span {
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: var(--accent);
+  border: 2px solid var(--ink);
   font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .skills-text {
@@ -232,15 +246,16 @@ body::before {
   color: var(--ink);
   text-decoration: none;
   padding: 14px 16px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.32);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  transition: transform 180ms ease, background 180ms ease;
+  border-radius: 14px;
+  background: #ffffff;
+  border: 3px solid var(--ink);
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
 }
 
 .contact-links a:hover {
-  transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-3px, -3px);
+  background: var(--accent-2);
+  color: #ffffff;
 }
 
 @media (max-width: 860px) {
@@ -261,6 +276,12 @@ body::before {
   .hero,
   .content-grid > section {
     padding: 24px;
-    border-radius: 24px;
+    border-radius: 18px;
+  }
+
+  .hero::after,
+  .scribble,
+  .pixel {
+    display: none;
   }
 }
