@@ -23,10 +23,15 @@ body {
   font-family: "IBM Plex Mono", monospace;
   color: var(--ink);
   background:
+    linear-gradient(rgba(248, 240, 44, 0.78), rgba(248, 240, 44, 0.78)),
+    url("https://upload.wikimedia.org/wikipedia/commons/6/65/Keith_Haring_op_de_Centrale_Markthallen_te_Amsterdam_%281%29.jpg"),
     linear-gradient(90deg, transparent 0, transparent 47px, var(--grid) 48px, transparent 49px),
     linear-gradient(transparent 0, transparent 47px, var(--grid) 48px, transparent 49px),
     linear-gradient(135deg, var(--bg) 0%, #ffe6a8 38%, var(--bg-secondary) 100%);
-  background-size: 48px 48px, 48px 48px, auto;
+  background-size: cover, cover, 48px 48px, 48px 48px, auto;
+  background-position: center, center, 0 0, 0 0, center;
+  background-attachment: fixed, fixed, fixed, fixed, fixed;
+  background-blend-mode: normal, multiply, normal, normal, normal;
 }
 
 body::before {
@@ -45,6 +50,8 @@ body::before {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   padding: 32px 0 48px;
+}
+
 .scribble,
 .pixel {
   position: fixed;
@@ -145,8 +152,6 @@ body::before {
   line-height: 1.75;
 }
 
-.eyebrow,
-.section-kicker,
 .stat-label,
 .award-year {
   text-transform: uppercase;
@@ -189,6 +194,7 @@ body::before {
 
 .stat-row p {
   margin: 4px 0 0;
+  font-weight: 500;
 }
 
 .awards {
@@ -210,6 +216,7 @@ body::before {
 
 .award-item p {
   margin: 0;
+  font-weight: 600;
 }
 
 .chips {
